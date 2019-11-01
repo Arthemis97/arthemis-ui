@@ -1,0 +1,154 @@
+// MEDIA QUERIES
+// @include screen(large) {
+//     width: 20%;
+//   }
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+  @if $size == "xs" {
+    @media screen and (#{$type}-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $size == "sm" {
+    @media screen and (#{$type}-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == "md" {
+    @media screen and (#{$type}-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $size == "lg" {
+    @media screen and (#{$type}-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $size == "xl" {
+    @media screen and (#{$type}-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (#{$type}-width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Define vertical, horizontal, or both position
+// @include center(both);
+@mixin center($position) {
+  position: absolute;
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Clearfix mixin
+// @extend %clearfix;
+%clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//Animation mixin setup
+// @include keyframes(fade-out) {
+//     0% { opacity: 1; }
+//     90% { opacity: 0; }
+//  }
+// @include animation('fade-out 5s 3');
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// Retina Image
+// @include image-2x("logo2x.png", 100px, 25px);
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+// Gradient
+// $start-color, $end-color, $orientation - vertical/horizontal/radial
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == "vertical" {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == "horizontal" {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(
+      center,
+      ellipse cover,
+      $start-color,
+      $end-color
+    );
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+//Padding mixin
+// @include padding(top, right, bottom, left);
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+//Margin mixin
+// @include margin(top, right, bottom, left);
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}

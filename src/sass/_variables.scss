@@ -1,0 +1,28 @@
+// Default
+$browser-context: 16;
+
+// Define the breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 736px;
+$breakpoint-md: 980px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1690px;
+
+// Colors
+$color-navy: hsl(210, 100%, 12%);
+$color-blue: hsl(208, 100%, 43%);
+$color-aqua: hsl(197, 100%, 75%);
+$color-teal: hsl(180, 59%, 51%);
+$color-olive: hsl(153, 43%, 42%);
+$color-green: hsl(127, 63%, 49%);
+$color-lime: hsl(146, 100%, 50%);
+$color-yellow: hsl(52, 100%, 50%);
+$color-orange: hsl(28, 100%, 55%);
+$color-red: hsl(3, 100%, 61%);
+$color-maroon: hsl(331, 74%, 30%);
+$color-fuchsia: hsl(314, 88%, 51%);
+$color-purple: hsl(292, 88%, 42%);
+$color-black: hsl(0, 0%, 7%);
+$color-gray: hsl(0, 0%, 67%);
+$color-silver: hsl(0, 0%, 87%);
+$color-white: hsl(0, 100%, 100%);
