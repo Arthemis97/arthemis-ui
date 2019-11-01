@@ -1,34 +1,80 @@
+/***
+  1. Media query mixin
+  2. Position center mixin
+  3. Clearfix
+  4. List reset
+  5. Keyframes
+  6. Animation
+  7. Retina Image
+  8. Gradient
+  9. Padding mixin
+  10. Margin mixin
+  11. Positioning (top, left, right, bottom)
+  12. Font size (rem calc)
+  13. Horizontal center 
+  14. Fade effect
+  15. Box shadow
+  16. Box width height
+  17. Column
+  18. Border radius
+***/
+
 // MEDIA QUERIES
-// @include screen(large) {
+// @include breakpoint(large) {
 //     width: 20%;
 //   }
-@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
-  @if $size == "xs" {
-    @media screen and (#{$type}-width: $breakpoint-xs) {
+@mixin breakpoint($point) {
+  @if $point == retina {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       @content;
     }
-  } @else if $size == "sm" {
-    @media screen and (#{$type}-width: $breakpoint-sm) {
+  }
+  @if $point == xxlarge {
+    @media (min-width: 1921px) {
       @content;
     }
-  } @else if $size == "md" {
-    @media screen and (#{$type}-width: $breakpoint-md) {
+  }
+  @if $point == xlarge {
+    @media (min-width: 1600px) {
       @content;
     }
-  } @else if $size == "lg" {
-    @media screen and (#{$type}-width: $breakpoint-lg) {
+  }
+  @if $point == large {
+    @media (min-width: 1441px) {
       @content;
     }
-  } @else if $size == "xl" {
-    @media screen and (#{$type}-width: $breakpoint-xl) {
+  } @else if $point == regular-screen {
+    @media (min-width: 1200px) {
       @content;
     }
-  } @else if $size == "custom" {
-    @media screen and (#{$type}-width: $pixels + px) {
+  } @else if $point == medium {
+    @media (min-width: 1024px) {
       @content;
     }
-  } @else {
-    @content;
+  } @else if $point == landscape {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $point == smaller-screen {
+    @media (min-width: 800px) {
+      @content;
+    }
+  } @else if $point == portrait {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $point == large-mobile {
+    @media (min-width: 480px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (min-width: 360px) {
+      @content;
+    }
   }
 }
 
@@ -82,7 +128,6 @@
 //     0% { opacity: 1; }
 //     90% { opacity: 0; }
 //  }
-// @include animation('fade-out 5s 3');
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
@@ -100,6 +145,8 @@
     @content;
   }
 }
+
+// @include animation('fade-out 5s 3');
 @mixin animation($str) {
   -webkit-animation: #{$str};
   -moz-animation: #{$str};
@@ -213,7 +260,23 @@
   }
 }
 
+// Box
 @mixin box($width, $height) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
+}
+
+// Columns
+@mixin columns($columns: 2, $gap: 30px) {
+  column-count: $columns;
+  column-gap: $gap;
+}
+
+// Border radius
+@mixin border-radius($full: null,$top-left, $top-right, $bottom-right, $bottom-left) {
+  @if $full {
+    border-radius: $full;
+  } @else {
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+  }
 }

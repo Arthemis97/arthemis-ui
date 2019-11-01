@@ -1,12 +1,13 @@
+/***
+    1. Default variables
+    2. Color variables
+    3. Z-index order
+***/
+
+
 // Default
 $browser-context: 16;
-
-// Define the breakpoints
-$breakpoint-xs: 480px;
-$breakpoint-sm: 736px;
-$breakpoint-md: 980px;
-$breakpoint-lg: 1280px;
-$breakpoint-xl: 1690px;
+$grid-column-gap: (15/16)em;
 
 // Colors
 $color-navy: hsl(210, 100%, 12%);
@@ -31,3 +32,4 @@ $color-white: hsl(0, 100%, 100%);
 $z-indexes: (
 //   "outdated-browser"
 );
+
