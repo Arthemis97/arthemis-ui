@@ -1,16 +1,15 @@
-import * as components from "./components";
-import "./sass/main.scss";
-const Arthemis = {
-  install(Vue) {
-    for (const componentName in components) {
-      const component = components[componentName];
-      Vue.component(component.name, component);
-    }
-  }
-};
+import Vue from 'vue'
+import App from './App.vue'
 
-export default Arthemis;
+// Art Components
+import globalComponents from './components';
 
-if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(Arthemis);
-}
+globalComponents.forEach(component => {
+  Vue.component(component.name, component);
+});
+
+Vue.config.productionTip = false
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+

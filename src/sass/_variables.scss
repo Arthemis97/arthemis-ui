@@ -3,11 +3,12 @@
     2. Color variables
     3. Z-index order
 ***/
-
-
 // Default
+$prx: art;
 $browser-context: 16;
 $grid-column-gap: (15/16)em;
+$base-font: 'PT Sans';
+$base-font-size: (12/16)em;
 
 // Colors
 $color-navy: hsl(210, 100%, 12%);

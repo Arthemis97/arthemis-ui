@@ -1,7 +1,17 @@
-@import "./reset";
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap&subset=cyrillic");
 @import "./variables";
 @import "./mixins";
 @import "./functions";
+@import "./reset";
 
+// Base styles
+body {
+    font-family: $base-font;
+    font-size: $base-font-size;
+    padding: 15px; // remove it
+}
 
-// Responsive Grid
+/***
+    Component styles
+***/
+@import "./components/Button.scss";

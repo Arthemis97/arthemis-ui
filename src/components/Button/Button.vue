@@ -1,15 +1,19 @@
 <template>
-  <button :class="`${type}`">
+  <button :class="`art-btn art-btn--${type}`" :disabled="disabled">
     <slot />
   </button>
 </template>
 <script>
 export default {
-  name: "rt-button",
+  name: "art-button",
   props: {
     type: {
       Type: String,
-      Default: "default"
+      Default: 'primary'
+    },
+    disabled: {
+      Type: Boolean,
+      Default: false
     }
   }
 };
